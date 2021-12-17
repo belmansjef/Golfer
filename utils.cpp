@@ -248,7 +248,6 @@ namespace utils
 	}
 #pragma endregion OpenGLDrawFunctionality
 
-
 #pragma region textureImplementations
 
 	bool TextureFromFile(const std::string& path, Texture& texture)
@@ -490,7 +489,6 @@ namespace utils
 	}
 #pragma endregion textureImplementations
 
-
 #pragma region CollisionFunctionality
 
 
@@ -534,6 +532,11 @@ namespace utils
 	{
 		const Point2f freeVector{ Point2f((destPos.x - startPos.x), (destPos.y - startPos.y)) };
 		return sqrtf((freeVector.x * freeVector.x) + (freeVector.y * freeVector.y));
+	}
+
+	float Clamp(float value, float min, float max)
+	{
+		return std::max(min, std::min(max, value));
 	}
 
 	void DrawLine4f(const Line4f& line)

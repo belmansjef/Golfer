@@ -80,6 +80,7 @@ namespace utils
 	Color4f GenerateRandomColor4f();
 
 	float GetDistance(const Point2f& startPos, const Point2f& destPos);
+	float Clamp(float value, float min, float max);
 
 	void DrawLine4f(const Line4f& line);
 	void DrawPentagram(const Point2f& center, const float radius);

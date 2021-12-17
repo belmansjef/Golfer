@@ -47,6 +47,16 @@ std::vector<Tile> Level::GetTiles()
 	return m_Tiles;
 }
 
+void Level::SetTiles(const std::vector<Tile>& tiles)
+{
+	m_Tiles = tiles;
+}
+
+void Level::SetHolePos(const Point2f& pos)
+{
+	m_HolePos = pos;
+}
+
 Point2f Level::GetStartPos()
 {
 	return m_StartPos;
@@ -59,6 +69,19 @@ Point2f Level::GetHolePos()
 
 void Level::Draw()
 {
+	for (auto& tile : m_Tiles)
+	{
+		utils::SetColor(0.0f, 0.0f, 0.2f, 0.3f);
+		utils::FillRect(tile.pos.x, tile.pos.y + 10.0f, tile.size, tile.size);
+
+		utils::SetColor(0.5f, 0.5f, 0.5f);
+		utils::FillRect(tile.pos, tile.size, tile.size);
+
+		utils::SetColor(0.0f, 0.0f, 0.0f);
+		utils::DrawRect(tile.pos, tile.size, tile.size, 2.0f);
+	}
+
+
     // Draw hole
 	utils::SetColor(0.0f, 0.0f, 0.0f, 0.2f);
 	utils::FillEllipse(m_HolePos.x, m_HolePos.y + (m_HoleSize / 3.0f), m_HoleSize, m_HoleSize);

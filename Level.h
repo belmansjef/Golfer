@@ -27,9 +27,13 @@ public:
 	Level(const Point2f& startPos, const Point2f& holePos, const utils::Texture& backgroundTexture, float holeSize);
 
 	bool IsInHole(const Point2f& pos, float size);
+
 	std::vector<Tile> GetTiles();
 	Point2f GetStartPos();
 	Point2f GetHolePos();
+
+	void SetTiles(const std::vector<Tile>& tiles);
+	void SetHolePos(const Point2f& pos);
 
 	void Draw();
 };
